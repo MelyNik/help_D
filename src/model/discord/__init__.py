@@ -6,8 +6,10 @@ from .get_all_servers import get_all_servers, check_if_token_in_guild
 from .token_checker import token_checker
 from .account_editor import AccountEditor
 from .send_chat_message import message_sender
+from .chatter import ai_chatter
 
 __all__ = [
+    "ai_chatter",
     "leave_guild",
     "get_account_info",
     "AccountInfo",

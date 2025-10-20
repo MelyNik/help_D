@@ -50,3 +50,8 @@ MAIN_MENU = [
     "Check if token in specified Guild [Token]",
     "Exit",
 ]
+
+@dataclass
+class DataForTasks:
+    """Контейнер для данных задач"""
+    pass
