@@ -1,0 +1,73 @@
+# =======================
+# helpD config.yaml (template, fill the placeholders)
+# =======================
+
+SETTINGS:
+  DISCORD_TOKEN_FOR_PARSING: ""        # токен аккаунта, которым парсим эмодзи/реакции/кнопки
+  PROXY_FOR_PARSING: ""                # proxy для парсинга (user:pass@ip:port или ip:port)
+  THREADS: 1                           # у вас «один первый» — держим один поток
+  ATTEMPTS: 3                          # сколько раз повторяем действие при ошибке
+  SHUFFLE_ACCOUNTS: false              # выключаем перемешивание (фиксированный порядок)
+  ACCOUNTS_RANGE: [1, 9999]            # диапазон индексов аккаунтов (1-based)
+  EXACT_ACCOUNTS_TO_USE: []            # если список не пуст — берём только эти индексы
+  PAUSE_BETWEEN_ATTEMPTS: [30, 60]     # пауза между ретраями (сек)
+  RANDOM_PAUSE_BETWEEN_ACCOUNTS: [0, 0] # у вас «один первый» — глушим паузы между аккаунтами
+  RANDOM_PAUSE_BETWEEN_ACTIONS: [120, 240]   # 2–4 минуты между действиями
+  RANDOM_INITIALIZATION_PAUSE: [0, 0]  # старт без рассинхронизации
+  RANDOM_PROFILE_PICTURES: false       # смена аватарок по задаче Change Profile Picture
+
+AI_CHATTER:
+  GUILD_ID: ""                         # id сервера (guild)
+  CHANNEL_ID: ""                       # id канала
+  ANSWER_PERCENTAGE: 100               # если нам задали вопрос — отвечаем 100%
+  REPLY_PERCENTAGE: 5                  # шанс отвечать на чужие сообщения (3–5% при «шумном» чате)
+  MESSAGES_TO_SEND_PER_ACCOUNT: [4, 6] # инициативные сообщения в день
+  PAUSE_BETWEEN_MESSAGES: [120, 240]   # 2–4 мин между сообщениями
+  PAUSE_BEFORE_MESSAGE: [120, 240]     # 2–4 мин «подумал перед ответом»
+
+MESSAGE_SENDER:
+  GUILD_ID: ""                         # для режима «Send message to the channel»
+  CHANNEL_ID: ""
+  DELETE_MESSAGE_INSTANTLY: false      # пока заглушено
+  SEND_MESSAGES_RANDOMLY: true         # брать случайные реплики из файла
+  NUMBER_OF_MESSAGES_TO_SEND: 6        # сколько сообщений отправить в этом режиме
+  PAUSE_BETWEEN_MESSAGES: [120, 240]   # пауза между ними
+  MESSAGE_FILE_OVERRIDE: ""   # подставляем через ENV для mondana/gover/hello_en
+
+CHAT_GPT:
+  API_KEYS: []                         # можно пусто, если используете .env → OPENAI_API_KEYS
+  MODEL: "gpt-5-mini"                      # платная модель API; настроим «человечность» промптами
+  PROXY_FOR_CHAT_GPT: ""               # если до openai нужен proxy (user:pass@ip:port / ip:port)
+
+POLICY:
+  TIMEZONE: ${POLICY_TIMEZONE}
+  ACTIVE_HOURS: [9, 1]  # работаем 09:00–01:00 по Мск
+
+  INITIATIVE_SLOTS:
+    ENABLED: true
+    DAILY_TARGET: [4, 6]          # целевые инициативы/день
+    MIN_GAP_MINUTES: [45, 120]    # пауза между инициативами (мин)
+
+  REPLY_POLICY:
+    ENABLED: true
+    STRONG_REPLY_PROB: 0.90       # явные реплаи
+    WEAK_REPLY_PROB: 0.60         # «слабые» реплики
+    MAX_ACTIONS_PER_THREAD: 2
+    DELAY_BETWEEN_ACTIONS_MINUTES: [2, 3]  # «подумал» 2–3 мин
+
+  PAUSES:
+    ENABLED: true
+
+  CONTENT:
+    MIN_WORDS: 3
+    MAX_WORDS: 11
+    BAN_LINKS: true
+    BAN_CHANNEL_MENTIONS: true    # ← ключ, который ждёт код
+    BAN_EMOJIS: false
+    GM_RATIO_MAX: 0.5
+
+  DEDUP:
+    WINDOW_HOURS: 24
+
+  RED_FLAGS:
+    SILENCE_HOURS: 24

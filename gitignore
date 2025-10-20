@@ -1,0 +1,51 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+.venv/
+venv/
+
+# --- IDE ---
+.vscode/
+.idea/
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Env & secrets ---
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# --- Data & runtime (keep private) ---
+data/**
+!data/.gitkeep
+
+# --- Logs ---
+logs/**
+*.log
+
+# --- Caches & artifacts ---
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+dist/
+build/
+
+# --- Spreadsheets & exports ---
+*.xlsx
+*.csv
+
+# --- Local scheduler scripts (optional) ---
+scripts/*.ps1
